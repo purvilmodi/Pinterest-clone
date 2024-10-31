@@ -1,0 +1,32 @@
+<% include ./partials/header.ejs %>
+<div class="bg-gray-100 flex justify-center items-center min-h-screen">
+  <div class="w-full max-w-md bg-white p-8 rounded-lg shadow-md">
+    <h2 class="text-2xl font-semibold mb-6 text-center">Edit Profile</h2>
+    <form action="/edit" method="POST" class="space-y-4">
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Full Name</label>
+        <input type="text" name="name" value="<%= user.name %>" required class="mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300">
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Username</label>
+        <input type="text" name="username" value="<%= user.username %>" required class="mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300">
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Email</label>
+        <input type="email" name="email" value="<%= user.email %>" required class="mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300">
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Password</label>
+        <input type="password" name="password" required class="mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300">
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700">Mobile Number</label>
+        <input type="number" name="contact" value="<%= user.contact %>" class="mt-1 block w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300">
+      </div>
+      <div class="text-center">
+        <button type="submit" class="w-full bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-4 rounded-md">Update Profile</button>
+      </div>
+    </form>
+  </div>
+</div>  
+  <% include ./partials/footer.ejs %>
