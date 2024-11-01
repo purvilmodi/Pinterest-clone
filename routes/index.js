@@ -95,6 +95,23 @@ router.get('/show/posts', isLoggedIn, async function(req, res, next) {
   }
 });
 
+router.delete("/board/:id", async (req, res) => {
+  try {
+    const boardId = req.params.id;
+
+    // Delete all posts associated with the board
+    await postModel.deleteMany({ board: boardId });
+
+    // Delete the board itself
+    await boardModel.findByIdAndDelete(boardId);
+
+    res.status(200).send("Board deleted successfully");
+  } catch (error) {
+    console.error("Error deleting board:", error);
+    res.status(500).send("Failed to delete board");
+  }
+});
+
 router.get('/delete/:id', async (req, res) => {
   try {
     const postId = req.params.id;
